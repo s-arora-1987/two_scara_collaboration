@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<robot name="blue_cylinder">
+
+<link name="base_link">
+  <collision name="box_collision">
+     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <!-- <sphere radius="0.02"/> -->
+<!--      <cylinder length="0.04" radius="0.02"/>-->
+<!--      <box size="0.02 0.02 0.03"/>-->
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <!-- <sphere radius="0.02"/> -->
+<!--      <cylinder length="0.04" radius="0.02"/>-->
+<!--      <box size="0.02 0.02 0.03"/>-->
+    </geometry>
+  </visual>
+  <inertial>
+    <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <!-- <mass value="0.22"/> -->
+    <mass value="0.5"/>
+    <inertia
+      ixx="0.5" ixy="0.0" ixz="0.0"
+      iyy="0.5" iyz="0.0"
+      izz="0.5"/>
+  </inertial>
+
+</link>
+
+
+<link name="film">
+  <collision name="film_collision">
+     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
+      <!-- <sphere radius="0.02"/> -->
+<!--      <cylinder length="0.04" radius="0.02"/>-->
+<!--      <box size="0.02 0.02 0.03"/>-->
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
+      <!-- <sphere radius="0.02"/> -->
+<!--      <cylinder length="0.04" radius="0.02"/>-->
+<!--      <box size="0.02 0.02 0.03"/>-->
+    </geometry>
+  </visual>
+  <inertial>
+    <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <mass value="0.001"/>
+    <inertia
+      ixx="0.001" ixy="0.0" ixz="0.0"
+      iyy="0.001" iyz="0.0"
+      izz="0.001"/>
+  </inertial>
+
+</link>
+
+  <joint name="world_bin_joint" type="fixed" >
+        <origin xyz="0.0 -0.001 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link" />
+        <child link="film"/>
+  </joint>
+
+<gazebo reference="base_link">
+  <fdir1>0 1 0</fdir1>
+  <mu1>1000.0</mu1>
+  <mu2>1000.0</mu2>
+  <material>Gazebo/OnionGood</material>
+<!--  <material>Gazebo/Bricks</material>-->
+<!--  <material>Gazebo/WoodFloor</material>-->
+</gazebo>
+
+
+<gazebo reference="film">
+  <fdir1>0 1 0</fdir1>
+<!--  <mu1>10.0</mu1>-->
+  <mu1>1000.0</mu1>
+  <mu2>1000.0</mu2>
+  <material>Gazebo/Defect</material>
+<!--  <material>Gazebo/PaintedWall</material>-->
+<!--  <material>Gazebo/Red</material>-->
+</gazebo>
+
+
+</robot>
+

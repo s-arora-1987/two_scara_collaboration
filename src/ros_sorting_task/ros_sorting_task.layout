@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="../../../change_objectcolor/src/ContactPlugin.hh" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="189" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/README.rst" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2017" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/src/intera_interface/gripper.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="880" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_common/intera_tools_description/urdf/electric_gripper/fingers/paddle_tip.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1425" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_gazebo/config/config.yaml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="663" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/red_cylinder.urdf" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="858" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_robot/sawyer_description/launch/test_sawyer_description.launch.test" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="345" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_examples/scripts/camera_display.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="76" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/move_group_interface/launch/move_group_interface_tutorial.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="169" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/scripts/enable_robot.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="191" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/my_plugin.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="234" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/setup.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="356" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../cylinder_blocks_poses_publisher.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="744" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/src/electric_gripper_controller.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="222" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/blue_cylinder.urdf" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="718" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/launch/sawyer_sim_controllers.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="940" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/model_visuals2.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="556" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/virtual_wall_1.urdf" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="718" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/Onion0.urdf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="721" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/ContactPlugin_Publisher.hh" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="686" topLine="19" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_examples/launch/gripper_joystick.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="595" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_examples/setup.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="253" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_irl_project/launch/robot_gazebo.launch" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5600" topLine="89" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_common/intera_tools_description/urdf/electric_gripper/rethink_electric_gripper.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7397" topLine="115" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/setup_assistant.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="539" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../scara_gripper_action_server.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1237" topLine="105" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/src/sawyer_position_controller.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="918" topLine="102" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/CMakeLists.txt" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1176" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_robot/sawyer_description/urdf/sawyer_base.urdf.xacro" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2164" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="ContactPlugin.hh" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1063" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/src/intera_interface/gripper_factory.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1887" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/kinematics/CMakeLists.txt" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="196" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/FoosballDemoPlugin.hh" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2319" topLine="62" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/default_warehouse_db.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="547" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/CMakeLists.txt" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="97" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/moveit_rviz.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="494" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_examples/CMakeLists.txt" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="14" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/config/electric_gripper_controller.yaml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="642" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/kinematics/src/ros_api_tutorial.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4862" topLine="83" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/src/intera_io/io_interface.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9103" topLine="309" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/ContactPlugin.cc" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="412" topLine="43" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_irl_project/urdf/sawyer_combined.urdf.xacro" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1812" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_robot/sawyer_description/urdf/sawyer_base.gazebo.xacro" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="779" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/package.xml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2644" topLine="37" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/debug.xml" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/src/sawyer_joint_position_controller.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4170" topLine="79" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/move_group_interface/src/sawyer_move_group_interface_tutorial.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7562" topLine="495" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_gazebo/launch/sawyer_sim_cameras.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1523" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../launch/scara_robot_controller.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="580" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/ContactPlugin_Publisher.cc" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2449" topLine="63" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/srdf/sawyer.srdf.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="921" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/move_group.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5269" topLine="65" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/trac_ik/trac_ik_tutorial.rst" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2013" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/sawyer_moveit.launch" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1767" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/ompl_planning_pipeline.launch.xml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="155" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../config/scara_robot_left_control.yaml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="85" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../scara_left_motion_planner.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="20580" topLine="294" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/config/ompl_planning.yaml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/config/joint_limits.yaml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2657" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_robot/sawyer_description/meshes/sawyer_pv/pedestal.DAE" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/move_group_interface/src/move_group_interface_tutorial.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5189" topLine="105" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/move_group_interface/launch/sawyer_move_group_interface_tutorial.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="262" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/move_group_interface/CMakeLists.txt" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="264" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../robotiq/robotiq_2f_85_gripper_visualization/urdf/gazebo.urdf.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="857" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../CMakeLists.txt" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="103" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../cylinder_blocks_spawner.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7967" topLine="156" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_examples/scripts/ik_pick_and_place_demo.py" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3467" topLine="81" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/conveyor_belt.urdf" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="120" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/OnionCenter.urdf" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="722" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="../../launch/initialize.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2062" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../robotiq/robotiq_2f_gripper_action_server/launch/robotiq_2f_gripper_action_server_gazebo.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1028" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_robot/sawyer_description/urdf/sawyer_electric_gripper.urdf.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="823" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_robot/sawyer_description/urdf/sawyer.urdf.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="389" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../scara_joint_controller.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8245" topLine="180" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/move_group_interface/move_group_interface_tutorial.rst" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2698" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/scara_robot_left.urdf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1353" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_common/intera_tools_description/urdf/electric_gripper/fingers/standard_narrow.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2257" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_gazebo/launch/sawyer_world.launch" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3885" topLine="74" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_gazebo/worlds/sawyer.world" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="40" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/ikfast/ikfast_tutorial.rst" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="104" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/src/intera_joint_trajectory_action/joint_trajectory_action.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1857" topLine="49" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/scripts/joint_trajectory_action_server.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22" topLine="64" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/config/sawyer_sim_controllers_plugins.xml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="37" />
+		</Cursor>
+	</File>
+	<File name="../../launch/withsawyer_initialize.launch" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4286" topLine="64" />
+		</Cursor>
+	</File>
+	<File name="../../launch/sawyer_world_collaboration.launch" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1188" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="../cylinder_active_pool.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1683" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/README.rst" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="189" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="../../launch/initialize.world" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1697" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/virtual_wall_2.urdf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="779" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/model_visual3.cc" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5679" topLine="159" />
+		</Cursor>
+	</File>
+	<File name="../../../change_objectcolor/src/model_visuals.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="142" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/srdf/sawyer_base.srdf.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1941" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="../scara_right_motion_planner.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11280" topLine="237" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_examples/launch/sawyer_pick_and_place_demo.launch" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="278" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ContactPlugin.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="680" topLine="35" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_common/intera_tools_description/urdf/electric_gripper/fingers/basic_soft_tip.xacro" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1152" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/human-gazebo/humanSubject01/humanSubject01_66dof.urdf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="87" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/launch/trajectory_execution.launch.xml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="776" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_examples/scripts/go_to_cartesian_pose.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="95" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_sim_controllers/config/sawyer_sim_controllers.yaml" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="../../../intera_sdk/intera_interface/scripts/send_urdf_fragment.py" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2118" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="../../../moveit_tutorials/doc/kinematics/launch/ros_api_tutorial.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="122" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_simulator/sawyer_gazebo/launch/image_proc.launch" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1227" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="../../../sawyer_moveit/sawyer_moveit_config/config/kinematics.yaml" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="272" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../urdf/scara_robot_right.urdf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="341" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="../../../../devel/include/two_scara_collaboration/pool_claim_msg.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="302" topLine="0" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>

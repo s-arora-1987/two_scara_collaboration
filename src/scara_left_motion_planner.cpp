@@ -188,7 +188,7 @@ int main(int argc, char** argv) {
     // service client to service "/scara_left_upper_boundary_change"
     ros::ServiceClient scara_left_upper_boundary_client
         = nh.serviceClient<two_scara_collaboration::upper_boundary_change>("/scara_left_upper_boundary_change");
-    two_scara_collaboration::upper_boundary_change left_boundary_change_srv;    
+    two_scara_collaboration::upper_boundary_change left_boundary_change_srv;
     // action client for gripper control, "gripper_action"
     actionlib::SimpleActionClient<two_scara_collaboration::scara_gripperAction>
         scara_gripper_action_client("gripper_action", true);
@@ -241,8 +241,12 @@ int main(int argc, char** argv) {
         while (!cylinder_claimed) {
             // cylinder not claimed
             for (int i=0; i<g_cylinder_pool.size(); i++) {
-                if (g_cylinder_y[g_cylinder_pool[i]] < -0.25)  // can't reach
+                if (g_cylinder_y[g_cylinder_pool[i]] < (-0.25) &&
+                    g_cylinder_x[g_cylinder_pool[i]] > (0.5)) {//-0.25 -1)  // can't reach
+                    ROS_INFO_STREAM("left can't reach" << g_cylinder_pool[i]);
                     continue;
+                }
+                ROS_INFO_STREAM("left can reach" << g_cylinder_pool[i]);
                 cylinder_claim_srv_msg.request.cylinder_index = g_cylinder_pool[i];
                 // call the cylinder claim service
                 if (cylinder_pool_claim_client.call(cylinder_claim_srv_msg)) {

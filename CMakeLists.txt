@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(two_scara_collaboration)
+add_compile_options(-std=c++11)
 
 find_package(catkin_simple REQUIRED)
 
@@ -25,7 +26,7 @@ catkin_simple()
 # SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 # Libraries: uncomment the following and edit arguments to create a new library
-# cs_add_library(my_lib src/my_lib.cpp)   
+# cs_add_library(my_lib src/my_lib.cpp)
 
 # Executables: uncomment the following and edit arguments to compile new nodes
 # may add more of these lines for more nodes from the same package
@@ -38,6 +39,7 @@ cs_add_executable(cylinder_active_pool src/cylinder_active_pool.cpp)
 cs_add_executable(scara_upper_boundary_maintainer src/scara_upper_boundary_maintainer.cpp)
 cs_add_executable(scara_left_motion_planner src/scara_left_motion_planner.cpp)
 cs_add_executable(scara_right_motion_planner src/scara_right_motion_planner.cpp)
+cs_add_executable(claim_n_track_onion src/claim_n_track_onion.cpp)
 
 #the following is required, if desire to link a node in this package with a library created in this same package
 # edit the arguments to reference the named node and named library within this package
@@ -45,3 +47,10 @@ cs_add_executable(scara_right_motion_planner src/scara_right_motion_planner.cpp)
 
 cs_install()
 cs_export()
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".svn" EXCLUDE)
+
+

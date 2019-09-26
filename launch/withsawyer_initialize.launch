@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <!-- initialize gazebo with a world file -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find two_scara_collaboration)/launch/initialize.world"/>
+    <arg name="gui" value="true" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="headless" value="false"/>
+  </include>
+
+  <!-- false true"/> -->
+  <!-- <include file="$(find sawyer_gazebo)/launch/twoscaralaunchfile_sawyer_world.launch"/>
+  -->
+  <param name="sawyer_pose_x" value="0.50" type="double"/>
+
+  <include file="$(find two_scara_collaboration)/launch/sawyer_world_collaboration.launch"/>
+
+  <!-- put file path of urdf model in parameter server, for the cylinder spawner node -->
+  <!-- more details at launch file of swarm robot simulation -->
+  <!-- gazebo has to be paused when starts up -->
+  <!-- because roslaunch doesn't guarantee serial running of each node -->
+  <!-- in this case, two scara will hit each other and swing back and forth -->
+  <!-- spawn the conveyor_belt in gazebo -->
+
+  <node name="spawn_conveyor_belt" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find two_scara_collaboration)/urdf/conveyor_belt.urdf -urdf -model conveyor_belt
+    -x 0.0
+    -y 0.0
+    -z 0.5"/>
+<!--   moving objects
+
+  <param name="wrench_force_x" value="0.25" type="double"/>
+  <param name="wrench_torque_y" value="5.0" type="double"/>
+  <param name="initial_pose_x" value="4.5" type="double"/>
+-->
+
+<!--   static objects
+
+  <param name="wrench_force_x" value="0.0" type="double"/>
+  <param name="wrench_torque_y" value="0.0" type="double"/>
+  <param name="initial_pose_x" value="2.0" type="double"/>
+-->
+
+  <param name="red_cylinder_path" type="str" value="/home/saurabharora/catkin_ws/src/two_scara_collaboration/urdf/red_cylinder.urdf"/>
+  <param name="blue_cylinder_path" type="str" value="/home/saurabharora/catkin_ws/src/two_scara_collaboration/urdf/blue_cylinder.urdf"/>
+  <param name="OnionCenter_path" type="str" value="/home/saurabharora/catkin_ws/src/two_scara_collaboration/urdf/OnionCenter.urdf"/>
+  <param name="Onion0_path" type="str" value="/home/saurabharora/catkin_ws/src/two_scara_collaboration/urdf/Onion0.urdf"/>
+
+  <param name="wrench_force_x" value="0.23" type="double"/>
+  <param name="wrench_torque_y" value="0.0" type="double"/>
+  <param name="initial_pose_x" value="1.85" type="double"/>
+  <param name="spawning_interval" value="50.0" type="double"/>
+  <param name="spawn_mulitple" 
+
+  <node name="cylinder_blocks_spawner" pkg="two_scara_collaboration" type="cylinder_blocks_spawner" output="screen">
+  </node>
+
+  <node name="cylinder_blocks_poses_publisher" pkg="two_scara_collaboration" type="cylinder_blocks_poses_publisher" output="screen" />
+  <node name="cylinder_active_pool" pkg="two_scara_collaboration" type="cylinder_active_pool" output="screen" />
+  <!--
+   -->
+
+  <!-- spawn the right scara robot in gazebo -->
+  <!-- spawn the left scara robot in gazebo -->
+  <!--
+  <node name="spawn_scara_robot_right" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find two_scara_collaboration)/urdf/scara_robot_right.urdf -urdf -model scara_robot_right
+    -x 0.0
+    -y -1.5
+    -z 0.5
+    -J scara_robot_right::rotation1 -0.78
+    -J scara_robot_right::rotation2 2.1" />
+
+  <node name="spawn_scara_robot_left" pkg="gazebo_ros" type="spawn_model"
+        args="-file $(find two_scara_collaboration)/urdf/scara_robot_left.urdf -urdf -model scara_robot_left
+    -x 0.0
+    -y 1.5
+    -z 0.5
+    -J scara_robot_left::rotation1 -0.78
+    -J scara_robot_left::rotation2 2.1" />
+
+  <node name="scara_left_motion_planner" pkg="two_scara_collaboration" type="scara_left_motion_planner" >
+  </node>
+
+  <node name="scara_gripper_action_server" pkg="two_scara_collaboration" type="scara_gripper_action_server" output="log" />
+
+  <node name="scara_joint_controller" pkg="two_scara_collaboration" type="scara_joint_controller" output="log" />
+
+  <node name="scara_upper_boundary_maintainer" pkg="two_scara_collaboration" type="scara_upper_boundary_maintainer" output="log" />
+
+  <node name="scara_right_motion_planner" pkg="two_scara_collaboration" type="scara_right_motion_planner" >
+  </node>
+  -->
+
+  <!-- for ros control to be used with scara robot -->
+  <!-- <param name="/scara_robot_left/robot_description" textfile="$(find two_scara_collaboration)/urdf/scara_robot_left.urdf" /> -->
+  <!-- load the motion planner -->
+
+</launch>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot name="virtual_wall_1">
+<material name="black">
+  <color rgba="0.0 0.0 0.0 1.0"/>
+</material>
+
+<!-- conveyor belt is just a long flat box for objects to slide on it -->
+
+<!-- world link -->
+<link name="world"/>
+
+<!-- base_link and its fixed joint -->
+<joint name="joint_fix" type="fixed">
+  <parent link="world"/>
+  <child link="base_link"/>
+  <origin xyz="0.55 0.15 0.75" rpy="0 0 0"/>
+  <axis xyz="0 0 1"/>
+</joint>
+
+<link name="base_link">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.01 0.26 0.01"/><!-- 10 1 0.2 -->
+    </geometry>
+  </collision>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.01 0.26 0.01"/><!-- 10 1 0.2 -->
+    </geometry>
+  </visual>
+
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1.0"/>
+    <inertia
+      ixx="1.0" ixy="0.0" ixz="0.0"
+      iyy="1.0" iyz="0.0"
+      izz="1.0"/>
+  </inertial>
+</link>
+
+<gazebo reference="base_link">
+    <material>Gazebo/Grass</material>
+</gazebo>
+
+</robot>
+

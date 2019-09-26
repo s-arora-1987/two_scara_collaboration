@@ -1,36 +1,67 @@
 <?xml version="1.0"?>
 <robot name="red_cylinder">
 
-<link name="base_link">
-  <collision>
-    <origin xyz="0 0 0.02" rpy="0 0 0"/>
-    <geometry>
-      <cylinder length="0.04" radius="0.02"/>
-    </geometry>
-  </collision>
-
-  <visual>
-    <origin xyz="0 0 0.02" rpy="0 0 0"/>
-    <geometry>
-      <cylinder length="0.04" radius="0.02"/>
-    </geometry>
-  </visual>
-
-  <inertial>
-    <origin xyz="0 0 0.02" rpy="0 0 0"/>
-    <mass value="0.00001"/>
-    <inertia
-      ixx="0.00001" ixy="0.0" ixz="0.0"
-      iyy="0.00001" iyz="0.0"
-      izz="0.00001"/>
-  </inertial>
-</link>
-
 <gazebo reference="base_link">
-  <material>Gazebo/Red</material>
+  <fdir1>0 1 0</fdir1>
+<!--  <mu1>10.0</mu1>-->
+  <mu1>1000.0</mu1>
+  <mu2>1000.0</mu2>
+  <material>Gazebo/OnionGood</material>
+<!--  <material>Gazebo/PaintedWall</material>-->
+<!--  <material>Gazebo/Red</material>-->
 </gazebo>
 
+<material name="red">
+  <color rgba="0.8 0.0 0.0 1.0"/>
+</material>
 
+<link name="base_link">
+  <collision name="box_collision">
+     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <!-- <sphere radius="0.02"/> -->
+<!--      <cylinder length="0.04" radius="0.02"/>-->
+<!--      <box size="0.02 0.02 0.03"/>-->
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <!-- <sphere radius="0.02"/> -->
+<!--      <cylinder length="0.04" radius="0.02"/>-->
+<!--      <box size="0.02 0.02 0.03"/>-->
+    </geometry>
+  </visual>
+  <inertial>
+    <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
+<!--     <mass value="0.14"/> --> 
+    <mass value="0.14"/>
+    <inertia
+      ixx="0.000254" ixy="0.0" ixz="0.0"
+      iyy="0.000254" iyz="0.0"
+      izz="0.000254"/>
+  </inertial>
+
+</link>
+
+<!--<gazebo reference="base_link">-->
+<!--  <visual name="visual">-->
+<!--    <plugin name="model_visuals" filename="libchange_objectcolor.so">-->
+<!--        <period>0.1</period>-->
+<!--    </plugin>-->
+<!--  </visual>-->
+<!--  <sensor name='my_contact' type='contact'>-->
+<!--      <plugin name="collision_plugin" filename="libcontactpublish.so"/>-->
+<!--      <contact>-->
+<!--        <collision>base_link_fixed_joint_lump__box_collision_collision</collision>-->
+<!--      </contact>-->
+<!--  </sensor>-->
+<!--</gazebo>-->
+<!--    name="model_visuals" filename="libchange_objectcolor.so">-->
+<!--      <plugin name="collision_1" filename="libcontact.so"/>-->
+<!--        <collision>box_collision_collision</collision>-->
 
 </robot>
 

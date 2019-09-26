@@ -88,7 +88,7 @@ Joint::Joint(ros::NodeHandle nh, std::string joint_name, double pos_cmd, double 
     pos_publisher = nh.advertise<std_msgs::Float64>(joint_name_published + "_pos", 1);
     vel_publisher = nh.advertise<std_msgs::Float64>(joint_name_published + "_vel", 1);
     trq_publisher = nh.advertise<std_msgs::Float64>(joint_name_published + "_trq", 1);
-    joint_state_publisher = nh.advertise<sensor_msgs::JointState>(joint_name_published + "_states", 1); 
+    joint_state_publisher = nh.advertise<sensor_msgs::JointState>(joint_name_published + "_states", 1);
     // initialize subscriber object
     pos_cmd_subscriber = nh.subscribe(joint_name_published + "_pos_cmd", 1, &Joint::posCmdCB, this);
     // initialize kpkv service server
@@ -109,7 +109,7 @@ Joint::Joint(ros::NodeHandle nh, std::string joint_name, double pos_cmd, double 
 
 void Joint::posCmdCB(const std_msgs::Float64& pos_cmd_msg) {
     // too much information
-    // ROS_INFO("received value of %s_pos_cmd is: %f", joint_name.c_str(), pos_cmd_msg.data); 
+    // ROS_INFO("received value of %s_pos_cmd is: %f", joint_name.c_str(), pos_cmd_msg.data);
     pos_cmd = pos_cmd_msg.data;
 }
 
@@ -195,28 +195,28 @@ int main(int argc, char **argv) {
     double dt = 0.01;  // sample time for the joint controller
 
     // instantiate 4 joint instances
-    Joint scara_left_joint1(nh, "scara_robot_left::rotation1", -0.78, dt);
-    Joint scara_left_joint2(nh, "scara_robot_left::rotation2", 2.1, dt);
+    //Joint scara_left_joint1(nh, "scara_robot_left::rotation1", -0.78, dt);
+    //Joint scara_left_joint2(nh, "scara_robot_left::rotation2", 2.1, dt);
     Joint scara_right_joint1(nh, "scara_robot_right::rotation1", -0.78, dt);
     Joint scara_right_joint2(nh, "scara_robot_right::rotation2", 2.1, dt);
 
     // set kp & kv here after being tuned
-    scara_left_joint1.kpkvSetting(80, 16);
-    scara_left_joint2.kpkvSetting(1, 0.2);
+    //scara_left_joint1.kpkvSetting(80, 16);
+    //scara_left_joint2.kpkvSetting(1, 0.2);
     scara_right_joint1.kpkvSetting(80, 16);
     scara_right_joint2.kpkvSetting(1, 0.2);
 
     ros::Rate rate_timer(1/dt);
     while (ros::ok()) {
         // get joint state(pos, vel) and publish them
-        scara_left_joint1.getJointState();
-        scara_left_joint2.getJointState();
+        //scara_left_joint1.getJointState();
+        //scara_left_joint2.getJointState();
         scara_right_joint1.getJointState();
         scara_right_joint2.getJointState();
 
         // calculate the torque for each joitn and publish them
-        scara_left_joint1.jointTrqControl();
-        scara_left_joint2.jointTrqControl();
+        //scara_left_joint1.jointTrqControl();
+        //scara_left_joint2.jointTrqControl();
         scara_right_joint1.jointTrqControl();
         scara_right_joint2.jointTrqControl();
 

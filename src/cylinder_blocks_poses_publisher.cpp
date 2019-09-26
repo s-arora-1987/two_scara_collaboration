@@ -12,6 +12,8 @@
 #include <std_msgs/Int8MultiArray.h>
 #include <gazebo_msgs/ModelStates.h>
 #include <two_scara_collaboration/cylinder_blocks_poses.h>
+#include <gazebo_msgs/ApplyBodyWrench.h>
+#include <gazebo_msgs/DeleteModel.h>
 
 // global variables
 int g_cylinder_quantity;
@@ -22,6 +24,18 @@ std::vector<double> g_z;
 bool g_current_cylinder_callback_started = false;
 bool g_cylinder_poses_updated = false;  // act as frequency control of publish loop
 
+ros::ServiceClient apply_wrench_client;
+bool call_service;
+gazebo_msgs::ApplyBodyWrench apply_wrench_srv_msg;  // service message
+double SAWYERRANGE_UPPER_LIMIT, initial_pose_y;
+ros::ServiceClient delete_model_client;
+gazebo_msgs::DeleteModel delete_model_srv_msg;
+std::vector<int> indices_deleted;
+int goodOnionsConvEnd=0;
+int badOnionsConvEnd=0;
+int goodOnionsInBin=0;
+int badOnionsInBin=0;
+
 std::string intToString(int a) {
     std::stringstream ss;
     ss << a;
@@ -30,6 +44,7 @@ std::string intToString(int a) {
 
 void currentCylinderCallback(const std_msgs::Int8MultiArray& current_cylinder_blocks) {
     // this topic contains information of what cylinder blocks have been spawned
+    std::cout << "received ros msg on /current_cylinder_blocks in file cylinder_blocks_poses_publisher.cpp";
     if (!g_current_cylinder_callback_started) {
         // set first time started flag to true
         g_current_cylinder_callback_started = true;
@@ -53,7 +68,10 @@ void modelStatesCallback(const gazebo_msgs::ModelStates& current_model_states) {
         cylinder_z.resize(g_cylinder_quantity);
         // find position of all current cylinders in topic message
         bool cylinder_poses_completed = true;
+        int ind_del;
+        bool model_deleted;
         for (int i=0; i<g_cylinder_quantity; i++) {
+            
             // get index of ith cylinder
             std::string indexed_model_name;
             if (g_current_cylinder_blocks[i] == 0) {
@@ -70,20 +88,93 @@ void modelStatesCallback(const gazebo_msgs::ModelStates& current_model_states) {
                 }
             }
             if (index != -1) {
-                // this model name has been successfully indexed
+                // this model name exists and has been successfully indexed
                 cylinder_x[i] = current_model_states.pose[index].position.x;
                 cylinder_y[i] = current_model_states.pose[index].position.y;
                 cylinder_z[i] = current_model_states.pose[index].position.z;
-            }
-            else {
+
+                // update global counter for Onions in Bin and delete them
+                // if (cylinder_x[i] > SAWYERRANGE_UPPER_LIMIT) {
+
+                // update global counter for Onions reaching end of conveyor and delete them
+                if (cylinder_y[i] > SAWYERRANGE_UPPER_LIMIT) {
+
+                    if (g_current_cylinder_blocks[i] == 0) {
+                        goodOnionsConvEnd += 1;
+                    } else {
+                        badOnionsConvEnd += 1;
+                    }
+
+                    delete_model_srv_msg.request.model_name = indexed_model_name;
+                    // call apply body wrench service
+                    call_service = delete_model_client.call(delete_model_srv_msg);
+                    if (call_service) {
+                        if (delete_model_srv_msg.response.success) {
+                            std::cout << "adding model index " << i << " in vector " << std::endl; 
+                            indices_deleted.push_back(i);
+                            // ROS_INFO_STREAM(indexed_model_name << " speed re-initialized");
+                        }
+                        else {
+                            ROS_INFO_STREAM(" fail to delete_model " << indexed_model_name);
+                        }
+                    }
+                    else {
+                        ROS_ERROR("fail to connect with gazebo server for delete_model");
+                        // return 0;
+                    }                    
+                } 
+
+                // for rest of objects objects on conveyor, keep pushing forward
+                if ((cylinder_z[i] >= 0.79) && (cylinder_z[i] <= 0.85)) {
+                    // prepare apply body wrench service message
+                    apply_wrench_srv_msg.request.body_name = indexed_model_name + "::base_link";
+                    // call apply body wrench service
+                    call_service = apply_wrench_client.call(apply_wrench_srv_msg);
+                    if (call_service) {
+                        if (apply_wrench_srv_msg.response.success) {
+                            // ROS_INFO_STREAM(indexed_model_name << " speed re-initialized");
+                        }
+                        else {
+                            ROS_INFO_STREAM(indexed_model_name << " fail to re-initialize speed");
+                        }
+                    }
+                    else {
+                        ROS_ERROR("fail to connect with gazebo server for apply wrench");
+                        // return 0;
+                    }                    
+                }
+            } else {
+
+                model_deleted=false;
+                for (auto j = indices_deleted.begin(); j != indices_deleted.end(); ) {
+                    ind_del = *j;// model index
+                    // std::cout << "deleted index - " << ind_del << ", and i " << i;
+                    if ((int)ind_del == (int)i) {
+                        // model has been deleted
+                        // std::cout << "found model index" << ind_del << "in vector " << std::endl; 
+                        model_deleted=true; break;
+                    }
+                }
+
+                if (model_deleted == false) {
+                    // cylinder is not accounted for in either deleted or spawned models
+                    std::cout << "cylinder_poses_completed = false at i " << i << std::endl;
+                    cylinder_poses_completed = false;
+                } else {
+                    // std::cout << "cylinder_x[i] = -100.0 for i " << i << std::endl;
+                    cylinder_x[i] = -100.0;
+                    cylinder_y[i] = -100.0;
+                    cylinder_z[i] = -100.0;
+                }
                 // ROS_ERROR("fail to find model name in the model_states topic");
                 // in the test run, there is chance that the last cylinder is not in the topic message
                 // and g_cylinder_quantity (fron spawner node) is larger than the cylinder quantity here
                 // because /gazebo/model_states are sampled at a high rate of about 1000Hz
                 // so the position data should be aborted if fail to find the last cylinder
-                cylinder_poses_completed = false;
+                // cylinder_poses_completed = false;
             }
         }
+
         if (cylinder_poses_completed) {
             // only pass data to globals when they are completed
             g_x.resize(g_cylinder_quantity);
@@ -92,6 +183,7 @@ void modelStatesCallback(const gazebo_msgs::ModelStates& current_model_states) {
             g_x = cylinder_x;
             g_y = cylinder_y;
             g_z = cylinder_z;
+            // std::cout << "g_x, g_y, g_z updated" << std::endl;
             if (!g_cylinder_poses_updated) {
                 // reset flag to true, after updating global value of g_x, g_y, g_z
                 g_cylinder_poses_updated = true;
@@ -113,6 +205,46 @@ int main(int argc, char** argv) {
         = nh.advertise<two_scara_collaboration::cylinder_blocks_poses>("cylinder_blocks_poses", 1);
     two_scara_collaboration::cylinder_blocks_poses current_poses_msg;
 
+    double wrench_force_x, wrench_force_y, wrench_torque_y;
+    nh.getParam("/wrench_force_y", wrench_force_y);
+    nh.getParam("/SAWYERRANGE_UPPER_LIMIT", SAWYERRANGE_UPPER_LIMIT);
+    nh.getParam("/initial_pose_y", initial_pose_y);
+
+    apply_wrench_client
+    = nh.serviceClient<gazebo_msgs::ApplyBodyWrench>("/gazebo/apply_body_wrench");
+     // make sure /gazebo/apply_body_wrench service is ready
+    bool service_ready = false;
+    while (!service_ready) {
+        service_ready = ros::service::exists("/gazebo/apply_body_wrench", true);
+        ROS_INFO("waiting for apply_body_wrench service");
+        ros::Duration(0.5).sleep();
+    }
+    ros::Time time_temp(0, 0);
+    ros::Duration duration_temp(0, 1000); 
+    // ros::Duration duration_temp(-1); 
+    apply_wrench_srv_msg.request.wrench.force.x = 0.0; 
+    apply_wrench_srv_msg.request.wrench.force.y = wrench_force_y;
+    apply_wrench_srv_msg.request.wrench.force.z = 0.0;
+    apply_wrench_srv_msg.request.wrench.torque.x = 0.0;
+    apply_wrench_srv_msg.request.wrench.torque.y = 0.0;
+    apply_wrench_srv_msg.request.wrench.torque.z = 0.0;
+    apply_wrench_srv_msg.request.start_time = time_temp;
+    apply_wrench_srv_msg.request.duration = duration_temp;
+    apply_wrench_srv_msg.request.reference_frame = "world";
+    ROS_INFO("apply_body_wrench service and msg are ready");
+
+    delete_model_client
+    = nh.serviceClient<gazebo_msgs::DeleteModel>("/gazebo/delete_model");
+    // make sure Delete Model service is ready
+    service_ready = false;
+    while (!service_ready) {
+        service_ready = ros::service::exists("/gazebo/delete_model", true);
+        ROS_INFO("waiting for delete_urdf_model service");
+        ros::Duration(0.5).sleep();
+    }
+    ROS_INFO("delete_urdf_model service is ready");
+
+   // ros::Rate rate_timer(200);
     // publishing loop
     while (ros::ok()) {
         if (g_cylinder_poses_updated) {
@@ -129,6 +261,7 @@ int main(int argc, char** argv) {
             current_poses_msg.z = g_z;
             cylinder_poses_publisher.publish(current_poses_msg);
         }
+        // rate_timer.sleep();
         ros::spinOnce();
     }
     return 0;
