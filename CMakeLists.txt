@@ -16,12 +16,6 @@ find_package(catkin_simple REQUIRED)
 #include_directories(${EIGEN3_INCLUDE_DIR})
 #add_definitions(${EIGEN_DEFINITIONS})
 
-#add dynamic reconfigure api
-#find_package(catkin REQUIRED dynamic_reconfigure)
-#generate_dynamic_reconfigure_options(
-#  cfg/wrench_dyn_reconfig.cfg
-#) 
-
 catkin_simple()
 
 # example boost usage
@@ -50,9 +44,6 @@ cs_add_executable(claim_n_track_onion src/claim_n_track_onion.cpp)
 #the following is required, if desire to link a node in this package with a library created in this same package
 # edit the arguments to reference the named node and named library within this package
 # target_link_library(example my_lib)
-
-# make sure configure headers are built before any node using them
-#add_dependencies(cylinder_blocks_poses_publisher two_scara_collaboration_gencfg)
 
 cs_install()
 cs_export()

@@ -5,7 +5,7 @@
   <collision name="box_collision">
      <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <mesh filename="package://sawyer_irl_project/meshes/custom_onion.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -14,7 +14,7 @@
   <visual>
     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <mesh filename="package://sawyer_irl_project/meshes/custom_onion.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -36,7 +36,7 @@
   <collision name="film_collision">
      <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
+      <mesh filename="package://sawyer_irl_project/meshes/custom_onion_defect.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -45,7 +45,7 @@
   <visual>
     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
+      <mesh filename="package://sawyer_irl_project/meshes/custom_onion_defect.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -55,9 +55,9 @@
     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <mass value="0.00000001"/>
     <inertia
-      ixx="0.00000001" ixy="0.0" ixz="0.0"
-      iyy="0.00000001" iyz="0.0"
-      izz="0.00000001"/>
+      ixx="0" ixy="0.0" ixz="0.0"
+      iyy="0" iyz="0.0"
+      izz="0"/>
   </inertial>
 
 </link>
@@ -79,12 +79,12 @@
 
 
 <gazebo reference="film">
-  <!-- <fdir1>0 1 0</fdir1> -->
+  <fdir1>0 1 0</fdir1>
 <!--  <mu1>10.0</mu1>-->
-<!--   <mu1>1000.0</mu1>
+  <mu1>1000.0</mu1>
   <mu2>1000.0</mu2>
- -->  <material>Gazebo/Black</material>
- <!--  <material>Gazebo/PaintedWall</material>-->
+  <material>Gazebo/Black</material>
+<!--  <material>Gazebo/PaintedWall</material>-->
 <!--  <material>Gazebo/Red</material>-->
 </gazebo>
 
