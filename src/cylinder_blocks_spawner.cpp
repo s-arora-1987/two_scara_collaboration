@@ -248,7 +248,7 @@ int main(int argc, char **argv) {
             else {
                 ROS_INFO("fail in first call");
                 ROS_ERROR("fail to connect with gazebo server");
-                return 0;
+                //return 0;
             }
 
             // prepare apply body wrench service message
@@ -265,7 +265,7 @@ int main(int argc, char **argv) {
             }
             else {
                 ROS_ERROR("fail to connect with gazebo server");
-                return 0;
+                //return 0;
             }
 
             // publish current cylinder blocks status, all cylinder blocks will be published

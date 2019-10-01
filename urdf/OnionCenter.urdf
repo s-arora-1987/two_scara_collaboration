@@ -5,7 +5,7 @@
   <collision name="box_collision">
      <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -14,7 +14,7 @@
   <visual>
     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
+      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -36,7 +36,7 @@
   <collision name="film_collision">
      <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
+      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
@@ -45,7 +45,7 @@
   <visual>
     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <geometry>
-      <mesh filename="file:///home/saurabharora/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
+      <mesh filename="file:///home/psuresh/catkin_ws/src/sawyer_irl_project/meshes/custom_onion_defect.STL"/>
       <!-- <sphere radius="0.02"/> -->
 <!--      <cylinder length="0.04" radius="0.02"/>-->
 <!--      <box size="0.02 0.02 0.03"/>-->
