@@ -44,8 +44,9 @@ int main(int argc, char **argv) {
     ros::NodeHandle nh; //("~");
 //    pauseSapwn = false;
     double wrench_force_x, wrench_force_y, wrench_torque_y, initial_pose_x, initial_pose_y,
-     height_spawning, spawning_interval, conveyor_center_x, belt_width,wrench_duration;
-    bool spawn_mulitple;
+     height_spawning, spawning_interval, conveyor_center_x, belt_width,wrench_duration,
+     add_force_y,SAWYERRANGE_LOWER_LIMIT,initial_pose_y_to_RANGE_LIMIT;
+    bool spawn_multiple;
     double randpos, object_width;
     nh.getParam("/wrench_force_x", wrench_force_x);
     nh.getParam("/wrench_force_y", wrench_force_y);
@@ -56,8 +57,15 @@ int main(int argc, char **argv) {
     nh.getParam("/spawning_interval", spawning_interval);
     nh.getParam("/conveyor_center_x", conveyor_center_x);
     nh.getParam("/belt_width", belt_width);
-    nh.getParam("/spawn_mulitple", spawn_mulitple);
+    nh.getParam("/spawn_multiple", spawn_multiple);
     nh.getParam("/object_width", object_width);
+    nh.getParam("/add_force_y", add_force_y);
+    nh.getParam("/SAWYERRANGE_LOWER_LIMIT", SAWYERRANGE_LOWER_LIMIT);
+    nh.getParam("/initial_pose_y_to_RANGE_LIMIT", initial_pose_y_to_RANGE_LIMIT);
+    
+    initial_pose_y=initial_pose_y_to_RANGE_LIMIT+SAWYERRANGE_LOWER_LIMIT;
+    std::cout << "initial_pose_y, wrench_force_y :" << initial_pose_y << "," << wrench_force_y << std::endl;
+
     // nh.getParam("/wrench_duration", wrench_duration);
 
 
@@ -159,10 +167,10 @@ int main(int argc, char **argv) {
     // prepare the apply body wrench service message
     // the exerted force and duration will decide the initial speed
     ros::Time time_temp(0, 0);
-    ros::Duration duration_temp(0, 1000); 
+    ros::Duration duration_temp(0, 1100); 
     // ros::Duration duration_temp(0, wrench_duration); 
     apply_wrench_srv_msg.request.wrench.force.x = 0.0; 
-    apply_wrench_srv_msg.request.wrench.force.y = wrench_force_y;
+    apply_wrench_srv_msg.request.wrench.force.y = wrench_force_y+add_force_y;
     apply_wrench_srv_msg.request.wrench.force.z = 0.0;
     apply_wrench_srv_msg.request.wrench.torque.x = 0.0;
     apply_wrench_srv_msg.request.wrench.torque.y = 0.0;
@@ -177,13 +185,15 @@ int main(int argc, char **argv) {
     int8_t color_index;  // 0 is red, 1 is blue
 
     ros::Duration(5).sleep();
+    double pos1 = conveyor_center_x - belt_width/2 + object_width/2;
+
     while (ros::ok()) {
 
-//        if ((rand() - RAND_MAX/2) > 0) spawn_mulitple = 1;
-//        else spawn_mulitple = 0;
-        //spawn_mulitple = 1;
+//        if ((rand() - RAND_MAX/2) > 0) spawn_multiple = 1;
+//        else spawn_multiple = 0;
+        //spawn_multiple = 1;
         // SPAWNING SINGLE OBJECT
-        if (spawn_mulitple == 0) {
+        if (spawn_multiple == 0) {
             std::string index_string = intToString(i);
 
             // prepare spawn model service message
@@ -191,9 +201,9 @@ int main(int argc, char **argv) {
             //     = (float)rand()/(float)(RAND_MAX) * 0.5-0.25; //0.4 - 0.27; // 0.8 -0.4; // random between -0.4 to 0.4
             // ROS_INFO_STREAM("y position of new onion: "
             //     << spawn_model_srv_msg.request.initial_pose.position.y);
-            randpos=((float)rand()/(float)(RAND_MAX))* belt_width;
+            randpos=((float)rand()/(float)(RAND_MAX))* (belt_width-object_width/2);
             spawn_model_srv_msg.request.initial_pose.position.x
-                = conveyor_center_x - belt_width/2 + (int)(randpos/object_width) * object_width; //0.4 - 0.27; // 0.8 -0.4; // random between -0.4 to 0.4
+                = pos1 + (int)(randpos/object_width) * object_width; //0.4 - 0.27; // 0.8 -0.4; // random between -0.4 to 0.4
             // ROS_INFO_STREAM("x position of new onion: "
                 // << spawn_model_srv_msg.request.initial_pose.position.x);
                 
@@ -275,16 +285,20 @@ int main(int argc, char **argv) {
         } else {
 
             //SPAWNING AND MOVING THREE OBJECTS
-
-            for (int j=0; j<3;j++) {
+            ROS_INFO_STREAM("spawn_multiple. ");
+            // double pos1;
+            for (int j=0; j<2;j++) {
                 std::string index_string = intToString(i);
                 // std::string model_name;
                 // int8_t color_index;  // 0 is red, 1 is blue
                 // prepare spawn model service message
-                spawn_model_srv_msg.request.initial_pose.position.y
-                    = 0.24-j*0.05; //width of sphere is 0.02, well within 0.05
-                ROS_INFO_STREAM("y position of new onion: "
-                    << spawn_model_srv_msg.request.initial_pose.position.y);
+                // spawn_model_srv_msg.request.initial_pose.position.y
+                //     = 0.24-j*0.05; //width of sphere is 0.02, well within 0.05
+                pos1 = conveyor_center_x - belt_width/2 +object_width/2;
+                spawn_model_srv_msg.request.initial_pose.position.x
+                    = pos1 + j*(object_width+0.01);
+                // ROS_INFO_STREAM("y position of new onion: "
+                //     << spawn_model_srv_msg.request.initial_pose.position.y);
                 if ((rand() - RAND_MAX/2) > 0) {
                     // then choose red cylinder
                     color_index = 0;
@@ -292,19 +306,18 @@ int main(int argc, char **argv) {
                     spawn_model_srv_msg.request.model_name = model_name;
                     spawn_model_srv_msg.request.robot_namespace = "red_cylinder_" + index_string;
                     spawn_model_srv_msg.request.model_xml = red_xmlStr;
-                }
-                else {
+                } else {
                     // then choose blue cylinder
                     color_index = 1;
                     model_name = "blue_cylinder_" + index_string;
                     spawn_model_srv_msg.request.model_name = model_name;
                     spawn_model_srv_msg.request.robot_namespace = "blue_cylinder_" + index_string;
-                    if ((rand() - RAND_MAX/2) > 0) {
-                        spawn_model_srv_msg.request.model_xml = OnionCenter_xmlStr;
-                    } else {
-                        spawn_model_srv_msg.request.model_xml = Onion0_xmlStr;
-                    }
-        //            spawn_model_srv_msg.request.model_xml = blue_xmlStr;
+                    spawn_model_srv_msg.request.model_xml = OnionCenter_xmlStr;
+                    // if ((rand() - RAND_MAX/2) > 0) {
+                    //     spawn_model_srv_msg.request.model_xml = OnionCenter_xmlStr;
+                    // } else {
+                    //     spawn_model_srv_msg.request.model_xml = Onion0_xmlStr;
+                    // }
                 }
                 // call spawn model service
                 bool call_service = spawn_model_client.call(spawn_model_srv_msg);
@@ -315,8 +328,7 @@ int main(int argc, char **argv) {
                     else {
                         ROS_INFO_STREAM(model_name << " spawn failed");
                     }
-                }
-                else {
+                } else {
                     ROS_INFO("fail in first call");
                     ROS_ERROR("fail to connect with gazebo server");
                     return 0;
@@ -332,8 +344,7 @@ int main(int argc, char **argv) {
                     else {
                         ROS_INFO_STREAM(model_name << " fail to initialize speed");
                     }
-                }
-                else {
+                } else {
                     ROS_ERROR("fail to connect with gazebo server");
                     return 0;
                 }

@@ -55,9 +55,9 @@
     <origin xyz="0 0 0.0" rpy="3.14 0 0"/>
     <mass value="0.00000001"/>
     <inertia
-      ixx="0" ixy="0.0" ixz="0.0"
-      iyy="0" iyz="0.0"
-      izz="0"/>
+      ixx="0.00000001" ixy="0.0" ixz="0.0"
+      iyy="0.00000001" iyz="0.0"
+      izz="0.00000001"/>
   </inertial>
 
 </link>
@@ -79,12 +79,12 @@
 
 
 <gazebo reference="film">
-  <fdir1>0 1 0</fdir1>
+  <!-- <fdir1>0 1 0</fdir1> -->
 <!--  <mu1>10.0</mu1>-->
-  <mu1>1000.0</mu1>
+<!--   <mu1>1000.0</mu1>
   <mu2>1000.0</mu2>
-  <material>Gazebo/Black</material>
-<!--  <material>Gazebo/PaintedWall</material>-->
+ -->  <material>Gazebo/Black</material>
+ <!--  <material>Gazebo/PaintedWall</material>-->
 <!--  <material>Gazebo/Red</material>-->
 </gazebo>
 

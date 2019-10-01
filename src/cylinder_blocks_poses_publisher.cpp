@@ -24,11 +24,13 @@ std::vector<double> g_z;
 bool g_current_cylinder_callback_started = false;
 bool g_cylinder_poses_updated = false;  // act as frequency control of publish loop
 
-ros::ServiceClient apply_wrench_client;
+double wrench_force_x, wrench_force_y, wrench_torque_y; 
+ros::ServiceClient apply_wrench_client; 
 bool call_service;
 gazebo_msgs::ApplyBodyWrench apply_wrench_srv_msg;  // service message
 double SAWYERRANGE_UPPER_LIMIT, SAWYERRANGE_LOWER_LIMIT, initial_pose_y,
 initial_pose_y_to_RANGE_LIMIT;
+bool delete_unreachable_objects;
 ros::ServiceClient delete_model_client;
 gazebo_msgs::DeleteModel delete_model_srv_msg;
 std::vector<int> indices_deleted;
@@ -97,8 +99,9 @@ void modelStatesCallback(const gazebo_msgs::ModelStates& current_model_states) {
                 // if (cylinder_x[i] > SAWYERRANGE_UPPER_LIMIT) {
 
                 // update global counter for Onions reaching end of conveyor and delete them
-                if (cylinder_y[i] > SAWYERRANGE_UPPER_LIMIT ||
-                 cylinder_y[i] < (SAWYERRANGE_LOWER_LIMIT+initial_pose_y_to_RANGE_LIMIT-0.02)) {
+                if (delete_unreachable_objects == true &&
+                    (cylinder_y[i] > SAWYERRANGE_UPPER_LIMIT ||
+                    cylinder_y[i] < (SAWYERRANGE_LOWER_LIMIT+initial_pose_y_to_RANGE_LIMIT-0.02))) {
                     if (g_current_cylinder_blocks[i] == 0) {
                         goodOnionsConvEnd += 1;
                     } else {
@@ -116,7 +119,7 @@ void modelStatesCallback(const gazebo_msgs::ModelStates& current_model_states) {
                         if (!delete_model_srv_msg.response.success) {
                             call_service = delete_model_client.call(delete_model_srv_msg);
                             if (delete_model_srv_msg.response.success) {
-                                std::cout << "adding model index " << i << " in vector. " << std::endl; 
+                                // std::cout << "adding model index " << i << " in vector. " << std::endl; 
                                 indices_deleted.push_back(i);
                                 ROS_INFO_STREAM("deleted model " << indexed_model_name);
                                 // break;
@@ -161,14 +164,14 @@ void modelStatesCallback(const gazebo_msgs::ModelStates& current_model_states) {
                 // for (auto j = indices_deleted.begin(); j != indices_deleted.end(); ) {
                 //     ind_del = *j;// model index
                 for (int ind_del: indices_deleted) {    
-                    std::cout << "current indices in indices_deleted " << ind_del;
+                    // std::cout << "current indices in indices_deleted " << ind_del;
                     if (ind_del == i) {
                         // model has been deleted
                         // std::cout << "found model index" << ind_del << "in vector " << std::endl; 
                         cylinder_x[i] = -100.0;
                         cylinder_y[i] = -100.0;
                         cylinder_z[i] = -100.0;
-                        std::cout << "cylinder_x[i] = -100.0 for i " << i << std::endl;
+                        // std::cout << "cylinder_x[i] = -100.0 for i " << i << std::endl;
                         model_deleted=true; 
                         break;
                     }
@@ -218,12 +221,13 @@ int main(int argc, char** argv) {
         = nh.advertise<two_scara_collaboration::cylinder_blocks_poses>("cylinder_blocks_poses", 1);
     two_scara_collaboration::cylinder_blocks_poses current_poses_msg;
 
-    double wrench_force_x, wrench_force_y, wrench_torque_y;
     nh.getParam("/wrench_force_y", wrench_force_y);
     nh.getParam("/SAWYERRANGE_UPPER_LIMIT", SAWYERRANGE_UPPER_LIMIT);
     nh.getParam("/initial_pose_y", initial_pose_y);
     nh.getParam("/SAWYERRANGE_LOWER_LIMIT", SAWYERRANGE_LOWER_LIMIT);
     nh.getParam("/initial_pose_y_to_RANGE_LIMIT", initial_pose_y_to_RANGE_LIMIT);
+    nh.getParam("/delete_unreachable_objects", delete_unreachable_objects);
+
 
     apply_wrench_client
     = nh.serviceClient<gazebo_msgs::ApplyBodyWrench>("/gazebo/apply_body_wrench");
@@ -235,7 +239,7 @@ int main(int argc, char** argv) {
         ros::Duration(0.5).sleep();
     }
     ros::Time time_temp(0, 0);
-    ros::Duration duration_temp(0, 350); 
+    ros::Duration duration_temp(0, 500); 
     // ros::Duration duration_temp(-1); 
     apply_wrench_srv_msg.request.wrench.force.x = 0.0; 
     apply_wrench_srv_msg.request.wrench.force.y = wrench_force_y;
