@@ -53,17 +53,6 @@
               -J sawyer::right_j5 0.8
               -J sawyer::right_j6 0.027
               -J sawyer::head_pan 0.00"/>
-  <!-- This argument sets the initial joint states
-  <arg name="initial_joint_states"
-    default=" -J right_j0 0
-              -J right_j1 -1.0
-              -J right_j2 0.00
-              -J right_j3 0.5
-              -J right_j4 -0.08
-              -J right_j5 0.8
-              -J right_j6 0.027
-              -J head_pan 0.00"/> -->
-
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-param robot_description -urdf -model sawyer
     -x 0.5

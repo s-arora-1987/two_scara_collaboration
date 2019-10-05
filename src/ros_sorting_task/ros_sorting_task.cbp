@@ -1748,7 +1748,7 @@
 		<Unit filename="../../config/scara_robot_left_control.yaml" />
 		<Unit filename="../../gazebo_screenshot.jpg" />
 		<Unit filename="../../launch/initialize.launch" />
-		<Unit filename="../../launch/initialize.world" />
+		<Unit filename="../../worlds/initialize.world" />
 		<Unit filename="../../launch/motion_planners.launch" />
 		<Unit filename="../../launch/sawyer_world_collaboration.launch" />
 		<Unit filename="../../launch/scara_robot_controller.launch" />

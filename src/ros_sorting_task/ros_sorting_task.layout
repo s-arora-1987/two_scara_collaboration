@@ -387,7 +387,7 @@
 			<Cursor1 position="2257" topLine="17" />
 		</Cursor>
 	</File>
-	<File name="../../../sawyer_simulator/sawyer_gazebo/launch/sawyer_world.launch" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../../../sawyer_simulator/sawyer_gazebo/worlds/sawyer_world.launch" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3885" topLine="74" />
 		</Cursor>
@@ -437,7 +437,7 @@
 			<Cursor1 position="189" topLine="36" />
 		</Cursor>
 	</File>
-	<File name="../../launch/initialize.world" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="../../worlds/initialize.world" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1697" topLine="55" />
 		</Cursor>

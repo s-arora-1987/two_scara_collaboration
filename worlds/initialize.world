@@ -24,7 +24,7 @@
 <!--      <direction>-1 -1 -1</direction>-->
     </light>
 
-<!--<!--    <gazebo reference="world">-->-->
+<!--<gazebo reference="world">-->
 <!--  <plugin name="SimEvents" filename="libSimEventsPlugin.so">-->
 <!---->
 <!--  <event>-->
@@ -41,7 +41,7 @@
 <!--  </event>-->
 <!---->
 <!--  </plugin>-->
-<!--<!--</gazebo>--> -->
+<!--</gazebo>-->
 
     <!-- for sawyer -->
     <physics type="ode">

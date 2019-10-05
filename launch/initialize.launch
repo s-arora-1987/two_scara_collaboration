@@ -3,21 +3,18 @@
 
   <!-- put file path of urdf model in parameter server, for the cylinder spawner node -->
   <!-- more details at launch file of swarm robot simulation -->
-  <param name="red_cylinder_path" type="str" value="/home/saurabharora/catkin_ws/src/two_scara_collaboration/urdf/red_cylinder.urdf"/>
-  <param name="blue_cylinder_path" type="str" value="/home/saurabharora/catkin_ws/src/two_scara_collaboration/urdf/blue_cylinder.urdf"/>
+  <param name="red_cylinder_path" type="str" value="$(find two_scara_collaboration)/urdf/red_cylinder.urdf"/>
+  <param name="blue_cylinder_path" type="str" value="$(find two_scara_collaboration)/urdf/blue_cylinder.urdf"/>
 
   <!-- initialize gazebo with a world file -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find two_scara_collaboration)/launch/initialize.world"/>
+    <arg name="world_name" value="$(find two_scara_collaboration)/worlds/initialize.world"/>
     <arg name="gui" value="true" />
     <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="debug" value="true"/>
-<!--       false  true"/>-->
     <arg name="headless" value="false"/>
   </include>
-
-<!--  <include file="$(find sawyer_gazebo)/launch/twoscaralaunchfile_sawyer_world.launch"/>-->
 
   <!-- gazebo has to be paused when starts up -->
   <!-- because roslaunch doesn't guarantee serial running of each node -->
@@ -40,7 +37,6 @@
     -y 1.5
     -J scara_robot_left::rotation1 -0.78
     -J scara_robot_left::rotation2 2.1" />
-
 
   <!-- the cylinder blocks spawner node -->
   <node name="cylinder_blocks_spawner" pkg="two_scara_collaboration" type="cylinder_blocks_spawner" output="screen" />

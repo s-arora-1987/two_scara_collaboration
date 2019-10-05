@@ -3,7 +3,7 @@
 
   <!-- initialize gazebo with a world file -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find two_scara_collaboration)/launch/initialize.world"/>
+    <arg name="world_name" value="$(find two_scara_collaboration)/worlds/initialize.world"/>
     <arg name="gui" value="true" />
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
@@ -53,7 +53,7 @@
   <param name="wrench_torque_y" value="0.0" type="double"/>
   <param name="initial_pose_x" value="1.85" type="double"/>
   <param name="spawning_interval" value="50.0" type="double"/>
-  <param name="spawn_mulitple" 
+  <param name="spawn_mulitple" />
 
   <node name="cylinder_blocks_spawner" pkg="two_scara_collaboration" type="cylinder_blocks_spawner" output="screen">
   </node>
